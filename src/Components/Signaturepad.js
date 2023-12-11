@@ -21,7 +21,6 @@ const SignaturePad = ({ onSave }) => {
   const [penColor, setPenColor] = useState('black'); // Initial pen color
   const [fontName, setFontName] = useState('Arial'); // Initial font name
   const [typedText, setTypedText] = useState('');
-
   const handleSave = async () => {
     const canvas = signatureRef.current.getCanvas();
     const signatureImage = canvas.toDataURL('image/png');
@@ -66,7 +65,7 @@ const SignaturePad = ({ onSave }) => {
   ref={signatureRef}
   penColor={penColor}
   canvasProps={{
-    height: 200,
+    height: 300,
     className: 'border border-gray-300 rounded-md mx-auto w-[300px] lg:w-full',
     style: { fontFamily: fontName, backgroundColor: 'transparent' },
   }}
