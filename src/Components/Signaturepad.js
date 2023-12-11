@@ -59,21 +59,20 @@ const SignaturePad = ({ onSave }) => {
   }, [penColor, fontName, typedText]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center pb-10 h-[100vh] ">
          <h1 className='text-3xl mb-3 font-bold'>React Signature Pad</h1>
-      <div className="bg-white p-8 rounded-md shadow-md">
+      <div className="bg-white  rounded-md shadow-md mx-auto pb-10 p-4">
       <SignatureCanvas
   ref={signatureRef}
   penColor={penColor}
   canvasProps={{
-    width: 500,
     height: 200,
-    className: 'border border-gray-300 rounded-md',
+    className: 'border border-gray-300 rounded-md mx-auto w-[300px] lg:w-full',
     style: { fontFamily: fontName, backgroundColor: 'transparent' },
   }}
 />
 
-        <div className="flex items-center space-x-4 mt-4">
+        <div className="flex flex-col justify-center gap-6 lg:flex-row items-center space-x-4 mt-4">
           <input
             type="color"
             value={penColor}
@@ -99,7 +98,7 @@ const SignaturePad = ({ onSave }) => {
             className="border border-gray-300 p-2 rounded flex-grow"
           />
         </div>
-        <div className="flex justify-end mt-4">
+        <div className="flex  justify-center   mt-4">
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
             onClick={handleSave}
