@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React from 'react';
+import SignaturePad from './Components/Signaturepad';
+const App = () => {
+  const handleSave = (imageData) => {
+    // Create a download link for the image
+    const link = document.createElement('a');
+    link.href = imageData;
+    link.download = 'signature.jpg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+     
+      <SignaturePad onSave={handleSave} />
     </div>
   );
-}
+};
 
 export default App;
