@@ -13,14 +13,17 @@ const fontOptions = [
   'Trebuchet MS',
   'Palatino',
   'Lucida Sans Unicode',
-  // Add more fonts as needed
-];
+  'Dancing Script', 
+  'Pacifico',      
+  'Lobster',        
 
+]
 const SignaturePad = ({ onSave }) => {
   const signatureRef = useRef();
   const [penColor, setPenColor] = useState('black'); // Initial pen color
   const [fontName, setFontName] = useState('Arial'); // Initial font name
   const [typedText, setTypedText] = useState('');
+
   const handleSave = async () => {
     const canvas = signatureRef.current.getCanvas();
     const signatureImage = canvas.toDataURL('image/png');
@@ -45,6 +48,8 @@ const SignaturePad = ({ onSave }) => {
     setTypedText(event.target.value);
   };
 
+  
+
   useEffect(() => {
     // Use the SignatureCanvas API to draw the text on the canvas
     const canvas = signatureRef.current.getCanvas();
@@ -56,6 +61,8 @@ const SignaturePad = ({ onSave }) => {
     context.fillStyle = penColor;
     context.fillText(typedText, 10, 30);
   }, [penColor, fontName, typedText]);
+
+
 
   return (
     <div className="flex flex-col items-center justify-center pb-10 h-[100vh] ">
